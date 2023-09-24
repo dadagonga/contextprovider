@@ -1,8 +1,11 @@
-import React from 'react'
+import { useContext } from 'react'
+import { AuthContext } from './AuthContextProvider'
+
 
 const SignInButton = () => {
+  const [signedIn, setSignedIn] = useContext(AuthContext)
   return (
-    <div>SignInButton</div>
+    <button onClick={() => setSignedIn(prev => !prev)}>{signedIn ? "Sign out" : "Sign in"}</button>
   )
 }
 
